@@ -40,6 +40,10 @@ Note: Pour lancer l'application sur un autre serveur web Apache, il est necessai
     - Mettre en place le virtualhost, l'url doit pointer vers le dossier /public du projet
         Aide: https://symfony.com/doc/current/setup/web_server_configuration.html
 
+##Administration
+Accès à la page d'administration
+Login: admin
+Password: password
 
 ## Tests
 Le projet contient 3 tests:
