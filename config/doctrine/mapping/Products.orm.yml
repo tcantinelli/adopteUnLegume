@@ -1,0 +1,28 @@
+App\Entity\Products:
+    type: entity
+
+    # clé(s) primaire(s)
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+
+    # colonne(s) de la table
+    fields:
+        nom:
+            type: string
+            length: 255
+
+        description:
+            type: string
+            length: 255
+            nullable: true
+
+        prix:
+            type: float
+            
+        image:
+            type: string
+            length: 255
+

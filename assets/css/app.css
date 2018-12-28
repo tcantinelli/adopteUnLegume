@@ -1,0 +1,39 @@
+body {
+    background-color: white;
+}
+
+.card{
+    width:15rem !important;
+    margin: 10px;
+}
+
+.ajoutPart{
+    border: 2px solid rgb(28, 158, 102);
+    padding: 10px;
+    border-radius: 10px;
+    width:auto !important;
+}
+
+.ajoutPart > *{
+    margin: auto 10px;
+}
+
+.navBar{
+    background-color: rgb(60, 193, 115);
+    padding: 5px;
+    width:100% !important;
+}
+
+p2{
+    margin: auto 20px !important;
+}
+
+.titreNav{
+    color: white;
+    font-size: 3vh;
+}
+
+.navLink, .navLink:hover{
+    color: white;
+    font-size: 3vh;
+}

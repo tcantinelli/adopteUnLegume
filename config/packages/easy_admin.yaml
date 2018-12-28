@@ -1,0 +1,12 @@
+easy_admin:
+       entities:
+            Products:
+                class: App\Entity\Products
+                list:
+                    fields:
+                        - { property: 'image', type: 'image', base_path: '/build/img/' }
+                        - { property: 'nom' }
+                        - { property: 'description' }
+                        - { property: 'prix' }
+                
+

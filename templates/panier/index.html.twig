@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+<div class="container">
+    {% if panier|length > 0 %}
+        {# Titre #}
+        <div class="row justify-content-center">
+                <h4>Récapitulatif panier</h4>
+        </div>
+        <div class="row justify-content-center">
+            {# Table des articles #}
+            <div class="col-sm-7">
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th class="align-middle" scope="col">Article</th>
+                        <th class="align-middle" scope="col">Prix</th>
+                        <th class="align-middle" scope="col">Quantité</th>
+                        <th class="align-middle" scope="col">Total</th>
+                        <th class="align-middle" scope="col">Supprimer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% set total = 0 %}
+                    {% for product in panier %}
+                        <tr id={{'line' ~ product.id }}>
+                            <th class="align-middle" width="40%">{{ product.nom }}</th>
+                            <td class="align-middle" width="20%" id={{'prix' ~ product.id }}>{{ product.prix ~ ' €' }}</td>
+                            <td class="align-middle" width="10%">
+                                <select class="form-control text-center form-control-sm panierQte" id="{{ product.id }}">
+                                    {% for i in 1..10 %}
+                                        {% if product.quantite == i %}
+                                            <option selected>{{ i }}</option>
+                                        {% else %}
+                                            <option>{{ i }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </td>
+                            <td class="align-middle panierPrix" width="20%" id={{'total' ~ product.id }}>{{ product.prix * product.quantite ~ ' €' }}</td>
+                            <td class="align-middle" width="10%">
+                                <button type="button" class="btn btn-outline-danger btn-sm" onclick={{'deleteArticle(' ~ product.id ~ ');' }}>X</button>
+                            </td>
+                        </tr>
+                        {% set total = total +  product.prix * product.quantite %}
+                    {% endfor %}
+                    <tr>
+                            <td colspan="4" class="text-right"><b>Total:</b></td>                          
+                            <td id="totalPanier">{{ total ~ ' €' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {# Bouton suppression panier #}
+        <div class="row justify-content-center">
+            <a href="/clear">
+                <button type="button" class="btn btn-danger btn-sm">Supprimer panier</button>
+            </a>
+        </div>
+    {% else %}
+        {# Message si panier vide #}
+        <div class="row justify-content-center">
+            <br>
+            <h4>Votre panier est vide !</h4>
+        </div>
+    {% endif %}
+</div>
+{% endblock content %}

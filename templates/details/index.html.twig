@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        {# Details Produit #}
+        <div class="col-sm-4">
+            <img class="img-fluid" src={{ asset('./build/img/' ~ product.image ) }} alt={{ product.nom }}>
+        </div>
+        <div class="col-sm">
+            <br>
+            <h3>{{ product.nom }}</h3>
+            <h5><b>Description: </b>{{ product.description }}</h4>
+            <h5><b>Prix: </b>{{ product.prix ~ ' €'}}</h4>
+            <br>
+            <div class="d-inline-flex ajoutPart">
+                <div class="p2">
+                    Ajouter au panier
+                </div>
+                <div class="p2">
+                    <select class="form-control text-center" id="selectQte">
+                        {% for i in 1..10 %}
+                            <option>{{ i }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="p2">
+                    <button type="button" class="btn btn-outline-success" onclick={{ 'addPanier(' ~ product.id ~ ');' }}><i class="fas fa-shopping-basket"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

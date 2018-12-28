@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        {# Cards Produits #}
+        {% for product in products %}
+            <div class="card mx-auto">
+                <img class="card-img-top" src={{ '/build/img/' ~ product.image }} alt="{{ product.nom }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.nom }}</h5>
+                    <h6 class="card-text text-right">{{ product.prix ~ ' €'}}</h6>
+                </div>
+                <div class="card-footer text-center">
+                    <a href={{'/details/' ~ product.id }}>
+                        <button type="button" class="btn btn-outline-info btn-sm">Voir la fiche</button>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
