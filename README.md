@@ -1,7 +1,7 @@
 # Application testSymfony
 
 ## Installation du projet
-1. Cloner le dépôt https://github.com/tcantinelli/testSymfony.git
+1. Cloner le dépôt https://github.com/tcantinelli/adopteUnLegume.git
 2. Ouvrir une console et se rendre dans le dossier du projet (/testSymfony)
 3. Installer les dépendances:
     composer install
